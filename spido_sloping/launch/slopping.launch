@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="simulation_time" default="15"/>
+
+  <node name="spido_sloping_node" pkg="spido_sloping" type="LQR.py" output="screen">
+	<param name="simulation_time"  value ="$(arg simulation_time)"/>
+
+ </node>
+  <node	name="record_Node" pkg="spido_sloping" type="record.py" output="screen">
+  	<param name="simulation_time"  value ="$(arg simulation_time)" />
+
+  </node>
+
+<!--node	name="record2_Node" pkg="spido_sloping" type="Forces_record.py" output="screen">
+  	<param name="simulation_time"  value ="$(arg simulation_time)" />
+
+  </node-->
+<node	name="trace_gsp" pkg="spido_sloping" type="trace_gps.py" output="screen">
+  	<param name="simulation_time"  value ="$(arg simulation_time)" />
+
+  </node>
+
+
+
+</launch>
